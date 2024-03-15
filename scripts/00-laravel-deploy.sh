@@ -10,7 +10,7 @@ echo "Caching routes..."
 php artisan route:cache
 
 echo "Creating secret key..."
-php artisan jwt:secret
+php artisan jwt:secret --show
 
 echo "Running migrations..."
 php artisan migrate:fresh --seed
