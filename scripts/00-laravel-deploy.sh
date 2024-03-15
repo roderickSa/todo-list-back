@@ -3,9 +3,6 @@ echo "Running composer"
 composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
 
-echo "generating application key..."
-php artisan key:generate --show
-
 echo "Caching config..."
 php artisan config:cache
 
@@ -16,4 +13,4 @@ echo "Creating secret key..."
 php artisan jwt:secret
 
 echo "Running migrations..."
-php artisan migrate --seed --force
+php artisan migrate:fresh --seed
