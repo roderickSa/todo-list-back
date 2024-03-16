@@ -10,4 +10,4 @@ echo "Caching routes..."
 php artisan route:cache
 
 echo "Running seeders..."
-php artisan db:seed
+php artisan db:seed --force
