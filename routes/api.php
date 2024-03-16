@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemTaskController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     });
 
     Route::apiResource('task', TaskController::class);
+
+    Route::apiResource('item_task', ItemTaskController::class)->except(['destroy']);
 });

@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Task::factory(4)->create();
+
+        \App\Models\ItemTask::factory(10)->create();
     }
 }

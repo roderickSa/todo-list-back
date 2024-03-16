@@ -6,7 +6,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TaskResource extends JsonResource
+class ItemTaskResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,8 +17,8 @@ class TaskResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_name' => $this->user->name,
-            'title' => $this->title,
+            'description' => $this->description,
+            'done' => $this->done,
             'created_at' => (new DateTime($this->created_at))->format("Y-m-d H:i:s"),
             'updated_at' => (new DateTime($this->updated_at))->format("Y-m-d H:i:s"),
         ];
