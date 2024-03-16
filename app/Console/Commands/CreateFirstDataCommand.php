@@ -44,20 +44,18 @@ class CreateFirstDataCommand extends Command
         $users = \App\Models\User::whereIn('email', array_column($users_to_create, 'email'))->get();
 
         if (count($users) == 0) {
-            \App\Models\User::factory()->create([
+            \App\Models\User::create([
                 'name' => 'Admin',
                 'email' => 'admin@example.com',
                 'password' => bcrypt('admin12345'),
                 'is_admin' => 1,
             ]);
 
-            \App\Models\User::factory()->create([
+            \App\Models\User::create([
                 'name' => 'Test User',
                 'email' => 'test@example.com',
                 'password' => bcrypt('12345'),
             ]);
-
-            \App\Models\Task::factory(4)->create();
         }
 
         $this->info("command finished");
