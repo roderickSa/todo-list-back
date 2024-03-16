@@ -9,5 +9,5 @@ php artisan config:cache
 echo "Caching routes..."
 php artisan route:cache
 
-echo "Running seeders..."
-php artisan db:seed --force
+echo "Creating first data..."
+php artisan app:create-first-data-command
