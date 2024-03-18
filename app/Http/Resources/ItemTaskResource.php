@@ -18,6 +18,7 @@ class ItemTaskResource extends JsonResource
         return [
             'id' => $this->id,
             'description' => $this->description,
+            'task_id' => $this->task_id,
             'done' => $this->done,
             'created_at' => (new DateTime($this->created_at))->format("Y-m-d H:i:s"),
             'updated_at' => (new DateTime($this->updated_at))->format("Y-m-d H:i:s"),
