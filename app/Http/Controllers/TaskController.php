@@ -30,13 +30,7 @@ class TaskController extends Controller
     {
         $data = $taskRequestCreate->validated();
 
-        $error = self::ValidateTaskOfUser($data["user_id"]);
-
-        if ($error) {
-            $error = new \Exception('Unauthorized to create task of another user', Response::HTTP_BAD_REQUEST);
-
-            return new ErrorResource($error);
-        }
+        $data['user_id'] = auth()->user()->id;
 
         $task = Task::create($data);
 
