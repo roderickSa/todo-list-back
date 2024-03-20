@@ -18,7 +18,9 @@ class TaskController extends Controller
      */
     public function index(): JsonResource
     {
-        $tasks = Task::where('user_id', '=', auth()->user()->id)->get();
+        $tasks = Task::where('user_id', '=', auth()->user()->id)
+            ->orderBy("id", "asc")
+            ->get();
 
         return TaskResource::collection($tasks);
     }

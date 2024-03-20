@@ -22,7 +22,11 @@ class ItemTaskController extends Controller
     {
         $data = $itemTaskListRequest->validated();
 
-        $task = Task::with('itemTasks')->where('user_id', '=', auth()->user()->id)->where('id', '=', $data['task_id'])->first();
+        $task = Task::with('itemTasks')
+            ->where('user_id', '=', auth()->user()->id)
+            ->where('id', '=', $data['task_id'])
+            ->orderBy("id", "asc")
+            ->first();
 
         $itemTasks = $task ? $task->itemTasks : [];
 
